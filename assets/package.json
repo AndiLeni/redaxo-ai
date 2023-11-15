@@ -1,0 +1,22 @@
+{
+    "name": "assets",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack && php ../../../../bin/console assets:sync "
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "@alpinejs/persist": "^3.12.3",
+        "@aws-sdk/client-translate": "^3.379.1",
+        "alpinejs": "^3.12.3"
+    }
+}

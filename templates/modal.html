@@ -1,0 +1,109 @@
+<div ai-data="aiModal" id="aiModal" ai-show="$store.ai.modalOpen">
+    <div class="modal-content">
+        <span class="close" ai-on:click="$store.ai.modalToggle()">&times;</span>
+        <div>
+            <!-- Nav tabs -->
+            <!-- <ul id="aiModalTabs" class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#chatgpt" data-toggle="tab">ChatGPT</a></li>
+                <li><a href="#translate" data-toggle="tab">Übersetzung</a></li>
+            </ul> -->
+
+            <div>
+                <button
+                    class="btn btn-primary"
+                    ai-bind:class="{ 'active': tab === 'chatgpt' }"
+                    ai-on:click="tab = 'chatgpt'"
+                >
+                    ChatGPT
+                </button>
+                <button
+                    class="btn btn-primary"
+                    ai-bind:class="{ 'active': tab === 'translate' }"
+                    ai-on:click="tab = 'translate'"
+                >
+                    Übersetzung
+                </button>
+            </div>
+
+            <hr />
+
+            <!-- Tab panes -->
+            <div ai-show="tab === 'translate'">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="language1">Ausgangssprache:</label>
+                            <select
+                                ai-model="translateSourceLang"
+                                class="form-control"
+                                id="language1"
+                            >
+                                <option value="de">Deutsch</option>
+                                <option value="en">Englisch</option>
+                                <option value="fr">Französisch</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="language2">Zielsprache:</label>
+                            <select
+                                ai-model="translateTargetLang"
+                                class="form-control"
+                                id="language2"
+                            >
+                                <option value="en">Englisch</option>
+                                <option value="fr">Französisch</option>
+                                <option value="de">Deutsch</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <textarea
+                    ai-model="translateIn"
+                    class="form-control ai-my"
+                    id="translateIn"
+                    rows="5"
+                    placeholder="Zu übersetzenden Text hier eingeben..."
+                ></textarea>
+
+                <button ai-on:click="translate()" class="btn btn-primary ai-my" id="btnTranslate">
+                    Übersetzen
+                </button>
+
+                <textarea
+                    ai-model="translateOut"
+                    class="form-control ai-my"
+                    id="translateOut"
+                    rows="5"
+                    placeholder="Übersetzter Text erscheint hier..."
+                ></textarea>
+            </div>
+
+            <div ai-show="tab === 'chatgpt'">
+                <div id="aiChatMessageContainer">
+                    <template ai-for="message in messages">
+                        <div
+                            class="chatMsg"
+                            ai-bind:class="message.role == 'user' ? 'ai_bg_gray' : ''"
+                        >
+                            <p class="m-0" ai-html="message.content"></p>
+                        </div>
+                    </template>
+                    <div class="chatMsg" ai-show="chatLoading">Warte auf Antwort...</div>
+                </div>
+
+                <textarea
+                    @keyup.enter="sendChatMsg($event)"
+                    ai-model="chatIn"
+                    class="form-control ai-my"
+                    rows="3"
+                    placeholder="Chat hier..."
+                ></textarea>
+                <button ai-on:click="clearChat()" class="btn btn-danger">Chat löschen</button>
+                <button ai-on:click="sendChatMsg()" class="btn btn-primary">Senden</button>
+            </div>
+        </div>
+    </div>
+</div>

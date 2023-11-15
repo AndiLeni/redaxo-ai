@@ -1,0 +1,15 @@
+package: ai
+version: 1.0.0
+
+page:
+    title: 'AI-Helfer'
+    perm: ai[]
+    subpages:
+      imagegen:
+        { title: 'Bilder generieren', icon: rex-icon fa-image }
+      imagelabel:
+        { title: 'Bilder labeln', icon: rex-icon fa-image }
+      audio:
+        { title: 'Audio', icon: rex-icon fa-image }
+      config:
+        { title: 'Einstellungen', icon: rex-icon fa-cog }

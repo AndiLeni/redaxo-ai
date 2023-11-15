@@ -1,0 +1,110 @@
+.ai-my {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ai_bg_gray {
+    background-color: #ddd;
+}
+
+.chatMsg {
+    margin: 10px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.chatMsg p:last-child {
+    margin: 0;
+}
+
+#aiChatMessageContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-x: auto;
+    max-height: 600px;
+    border: 1px solid #ccc;
+    /* border-radius: 10px; */
+}
+
+#aiMenuBtn {
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    line-height: 0;
+}
+.rex-nav-top #aiMenuBtn {
+    margin-right: 10px;
+    padding: 14px 14px;
+    color: rgba(var(--color-a-lightest));
+    transition: color 0.2s ease-in-out;
+}
+.rex-nav-top #aiMenuBtn:hover {
+    color: rgba(var(--color-a-darker));
+}
+body.rex-theme-dark .rex-nav-top #aiMenuBtn {
+    color: rgba(var(--color-a-lightest), 0.75);
+}
+body.rex-theme-dark .rex-nav-top #aiMenuBtn:hover {
+    color: rgba(var(--color-a-lightest));
+}
+@media (prefers-color-scheme: dark) {
+    body:not(.rex-theme-light) .rex-nav-top #aiMenuBtn {
+        color: rgba(var(--color-a-lightest), 0.75);
+    }
+    body:not(.rex-theme-light) .rex-nav-top #aiMenuBtn:hover {
+        color: rgba(var(--color-a-lightest));
+    }
+}
+#aiMenuBtn svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    vertical-align: -0.15em;
+}
+@media (max-width: 991px) {
+    .rex-nav-top #aiMenuBtn {
+        padding: 0;
+    }
+    #aiMenuBtn svg {
+        width: 18px;
+    }
+}
+
+/* modal */
+#aiModal {
+    position: fixed; /* Stay in place */
+    z-index: 1990;
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+    height: calc(100vh - 10%);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
